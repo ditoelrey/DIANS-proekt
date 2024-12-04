@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issuers Results</title>
+</head>
+<body>
+
+<h1>Issuers List</h1>
+
+<!-- Check if there are issuers to display -->
+<div th:if="${issuers != null}">
+  <table>
+    <thead>
+    <tr>
+      <th>Issuer Code</th>
+      <th>Issuer Name</th>
+      <th>Date</th>
+      <th>Other Info</th> <!-- Add more columns as needed -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over issuers and display each -->
+    <tr th:each="issuer : ${issuers}">
+      <td th:text="${issuer.date}"></td>
+      <td th:text="${issuer.max}"></td>
+      <td th:text="${issuer.issuer.getIssuerCode()}"></td>
+      <td th:text="${issuer.turnoverBest}"></td> <!-- Customize based on available fields -->
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- If no issuers, show a message -->
+<div th:if="${issuers == null or issuers.isEmpty()}">
+  <p>No issuers found for the specified criteria.</p>
+</div>
+
+</body>
+</html>
