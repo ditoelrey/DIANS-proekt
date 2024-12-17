@@ -16,4 +16,8 @@ public interface IssuerDataRepository extends JpaRepository<IssuerData, Long> {
 List<IssuerData> findByIssuerAndTimeRange(@Param("issuerId") String issuerId,
                                           @Param("startDate") Date startDate,
                                           @Param("endDate") Date endDate);
+
+
+    @Query("SELECT MAX(i.date) FROM IssuerData i WHERE i.issuer.id = :issuerId")
+    Date findLatestDateByIssuerId(@Param("issuerId") Long issuerId);
 }

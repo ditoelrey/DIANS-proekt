@@ -24,7 +24,7 @@ public class CodeService {
     private final IssuerDataRepository issuerDataRepository;
 
     public List<String> getAllCodes() {
-        return codeRepository.findAll().stream().map(Issuer::getIssuerCode).collect(Collectors.toList());
+        return codeRepository.findAllByOrderByIssuerCodeAsc().stream().map(Issuer::getIssuerCode).collect(Collectors.toList());
     }
 
 public Issuer saveIssuer(Issuer issuer) {

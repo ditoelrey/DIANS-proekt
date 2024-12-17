@@ -5,6 +5,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 
 @Component
@@ -19,10 +20,10 @@ public class PythonRunner {
     @Async
     public void runPythonScript() {
         try {
+            String scriptPath = "script.py";
             String pythonPath = "C:\\Users\\User\\anaconda3\\python.exe";
-            String scriptPath = "C:\\Users\\User\\Documents\\dians\\domashna2DIANS\\dians2\\src\\main\\java\\com\\example\\dians2\\configurations\\script.py";
-
             ProcessBuilder processBuilder = new ProcessBuilder(pythonPath, scriptPath);
+            processBuilder.directory(new File("src/main/resources"));
             processBuilder.redirectErrorStream(true);
 
             Process process = processBuilder.start();
@@ -37,11 +38,13 @@ public class PythonRunner {
             int exitCode = process.waitFor();
             System.out.println("Python script executed with exit code: " + exitCode);
 
-            String directoryPath = "C:\\Users\\User\\Documents\\dians\\domashna2DIANS\\dians2\\csv";
+
+            String directoryPath = "src\\main\\resources\\csv";
             csvImportService.importCsvData(directoryPath);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
+
 

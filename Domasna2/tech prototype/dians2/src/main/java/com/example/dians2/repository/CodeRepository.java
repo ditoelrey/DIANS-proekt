@@ -6,6 +6,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CodeRepository extends JpaRepository<Issuer,Long> {
-    List<Issuer> findAll();
+    List<Issuer> findAllByOrderByIssuerCodeAsc();
     Optional<Issuer> findByIssuerCode(String issuerCode);
 }
