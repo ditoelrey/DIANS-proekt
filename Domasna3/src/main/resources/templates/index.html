@@ -32,11 +32,13 @@
     </style>
 </head>
 <body>
+<th:block sec:authorize="hasRole('ROLE_USER')">
 <div class="container mt-5">
     <!-- Logout Button (top-right corner) -->
     <div class="text-end">
         <a href="/logout" id="logout-btn" class="btn btn-danger">Logout</a>
     </div>
+</th:block>
 
     <h1 class="header" th:text="${issuerCode}">Македонска берза</h1>
 
