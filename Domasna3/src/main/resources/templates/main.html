@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issuer Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        #logout-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        body > div > form > div:nth-child(4), body > div > form > div:nth-child(5) {
+            margin-bottom: -33px;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+
+    <div class="text-end">
+        <a href="/logout" id="logout-btn" class="btn btn-danger">Одјави се</a>
+    </div>
+</div>
+
+<h1 class="header" th:text="${issuerCode}">Македонска берза</h1>
+
+<form action="/issuers/details" method="post" class="row g-3 mb-4">
+    <div class="col-lg-3 col-md-4 col-sm-12">
+        <label for="code-select" class="form-label">Шифра:</label>
+        <select id="code-select" name="code" class="form-select" required>
+            <option value="" selected disabled>-- Избери шифра --</option>
+            <option th:each="code : ${codes}" th:value="${code}" th:text="${code}"
+                    th:selected="${code == selectedCode}"></option>
+        </select>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <label for="from-time" class="form-label">Од:</label>
+        <input type="date" id="from-time" name="from" class="form-control" th:value="${selectedFrom}" required>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <label for="to-time" class="form-label">До:</label>
+        <input type="date" id="to-time" name="to" class="form-control" th:value="${selectedTo}" required>
+    </div>
+    <div class="col-lg-3 col-md-12 col-sm-12 d-flex align-items-end">
+        <button type="submit" class="btn btn-primary me-2">Прикажи</button>
+        <button type="button" id="download-btn" class="btn btn-success me-2">Превземи</button>
+        <button type="button" id="graph-btn" class="btn btn-warning">График</button>
+    </div>
+</form>
+
+<div class="table-responsive mb-4">
+    <table id="issuerTable" class="table table-bordered table-hover table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>Датум</th>
+            <th>Цена на последна трансакција</th>
+            <th>Мак.</th>
+            <th>Мин.</th>
+            <th>Просечна цена</th>
+            <th>%пром.</th>
+            <th>Количина</th>
+            <th>Промет во БЕСТ во денари</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="issuer : ${issuers}">
+            <td th:text="${issuer.date}"></td>
+            <td th:text="${issuer.lastTradePrice}"></td>
+            <td th:text="${issuer.max}"></td>
+            <td th:text="${issuer.min}"></td>
+            <td th:text="${issuer.avgPrice}"></td>
+            <td th:text="${issuer.percentageChange}"></td>
+            <td th:text="${issuer.volume}"></td>
+            <td th:text="${issuer.turnoverBest}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:if="${issuers == null or issuers.isEmpty()}">
+    <p>No issuers found for the specified criteria.</p>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.getElementById('download-btn').addEventListener('click', function () {
+        var table = document.getElementById('issuerTable');
+        var rows = table.getElementsByTagName('tr');
+        var csvContent = '';
+
+        for (var i = 1; i < rows.length; i++) {
+            var rowData = [];
+            var cols = rows[i].getElementsByTagName('td');
+
+            for (var j = 0; j < cols.length; j++) {
+                rowData.push(cols[j].innerText);
+            }
+
+            csvContent += rowData.join(',') + '\n';
+        }
+
+        var blob = new Blob([csvContent], {type: 'text/csv'});
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'table_data.csv';
+        link.click();
+    });
+</script>
+
+
+<script>
+    document.getElementById('graph-btn').addEventListener('click', function () {
+        var code = document.getElementById('code-select').value;
+        var from = document.getElementById('from-time').value;
+        var to = document.getElementById('to-time').value;
+
+        if (code && from && to) {
+            window.location.href = `/issuers/details/graph?code=${code}&from=${from}&to=${to}`;
+        } else {
+            alert("Ве молиме пополнете ги сите полиња пред да продолжите.");
+        }
+    });
+</script>
+
+</body>
+</html>
+
+
+

@@ -1,9 +1,8 @@
 package com.example.dians2.configurations;
 
-import com.example.dians2.service.CsvImportService;
+import com.example.dians2.service.impl.CsvImportServiceImpl;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
@@ -11,9 +10,9 @@ import java.io.InputStreamReader;
 @Component
 public class PythonRunner {
 
-    private final CsvImportService csvImportService;
+    private final CsvImportServiceImpl csvImportService;
 
-    public PythonRunner(CsvImportService csvImportService) {
+    public PythonRunner(CsvImportServiceImpl csvImportService) {
         this.csvImportService = csvImportService;
     }
 

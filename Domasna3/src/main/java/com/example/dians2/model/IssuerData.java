@@ -23,28 +23,28 @@ public class IssuerData {
     private Date date;
 
     @Column(name = "last_trade_price", nullable = false)
-    private Double lastTradePrice;
+    private String lastTradePrice;
 
     @Column(name = "max")
-    private Double max;
+    private String max;
 
     @Column(name = "min")
-    private Double min;
+    private String min;
 
     @Column(name = "avg_price")
-    private Double avgPrice;
+    private String avgPrice;
 
     @Column(name = "percentage_change")
-    private Double percentageChange;
+    private String percentageChange;
 
     @Column(name = "volume")
-    private Double volume;
+    private String volume;
 
     @Column(name = "turnover_best")
-    private Double turnoverBest;
+    private String turnoverBest;
 
     @Column(name = "total_turnover")
-    private Double totalTurnover;
+    private String totalTurnover;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "issuer_code", referencedColumnName = "issuer_code", nullable = false)
