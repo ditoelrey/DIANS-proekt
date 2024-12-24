@@ -33,7 +33,7 @@ public class LoginController {
         try {
             user = authService.login(username, password);
             request.getSession().setAttribute("user", user);
-            return "redirect:/";
+            return "redirect:/issuers";
         } catch (RuntimeException ex) {
             model.addAttribute("hasError", true);
             model.addAttribute("error", ex.getMessage());

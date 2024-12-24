@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/register")
 public class RegisterController {
     private final AuthService authService;
+    private final UserService userService;
 
     public RegisterController(AuthService authService, UserService userService) {
         this.authService = authService;
+        this.userService = userService;
     }
 
     @GetMapping
@@ -36,7 +38,7 @@ public class RegisterController {
                            @RequestParam String surname
     ) {
         try {
-            this.authService.register(username, password, repeatedPassword, name, surname);
+            this.userService.register(username, password, repeatedPassword, name, surname);
             return "redirect:/login";
         } catch (RuntimeException ex) {
             return "redirect:/register?error=" + ex.getMessage();
