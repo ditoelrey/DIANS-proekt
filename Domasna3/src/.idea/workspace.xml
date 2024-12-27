@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="44244284-eeee-4caa-8957-2356399a571b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ADIN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ALK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ALKB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/AMBR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/AMEH.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/APTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ATPP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/AUMK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/BANA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/BGOR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/BIKF.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/BIM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/BLTU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/CBNG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/CDHV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/CEVI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/CKB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/CKBKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/DEBA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/DIMI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/EDST.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ELMA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ELNC.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ENER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ENSA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/EUHA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/EUMK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/EVRO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/FAKM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/FERS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/FKTL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/FROT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/FUBT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/GALE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/GDKM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/GECK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/GECT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/GIMS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/GRDN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/GRNT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/GRSN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/GRZD.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/GTC.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/GTRG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/IJUG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/INB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/INHO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/INOV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/INPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/INTP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/JAKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/JULI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/JUSK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KARO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KDFO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KJUBI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KKFI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KKST.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KLST.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KMB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KMPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KOMU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KONF.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KONZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KORZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KPSS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KULT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/KVAS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/LAJO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/LHND.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/LOTO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/LOZP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/MAGP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/MAKP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/MAKS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/MB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/MERM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/MKSD.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/MLKR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/MODA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/MPOL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/MPT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/MPTE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/MTUR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/MZHE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/MZPU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/NEME.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/NOSK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/OBPP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/OILK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/OKTA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/OMOS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/OPFO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/OPTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ORAN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/OSPO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/OTEK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/PELK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/PGGV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/PKB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/POPK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/PPIV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/PROD.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/PROT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/PTRS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/RADE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/REPL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/RIMI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/RINS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/RZEK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/RZIT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/RZIZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/RZLE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/RZLV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/RZTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/RZUG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/RZUS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/SBT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/SDOM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/SIL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/SKON.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/SKP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/SLAV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/SNBT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/SNBTO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/SOLN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/SPAZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/SPAZP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/SPOL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/SSPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/STB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/STBP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/STIL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/STOK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TAJM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TBKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TEAL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TEHN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TEL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TETE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TIKV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TKPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TKVS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TNB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TRDB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TRPS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TRUB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TSMP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TSZS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/TTKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/UNI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/USJE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/VARG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/VFPM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/VITA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/VROS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/VSC.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/VTKS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ZAS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ZILU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ZILUP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ZIMS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ZKAR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ZPKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ZPOG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/csv/ZUAS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/src/main/java/com/example/dians2/configurations/PythonRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/src/main/java/com/example/dians2/configurations/PythonRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../Domasna2/tech prototype/dians2/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2qXEUpNWvYxBVQzJkTH9oBb9MUP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="44244284-eeee-4caa-8957-2356399a571b" name="Changes" comment="" />
+      <created>1734800539546</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734800539546</updated>
+      <workItem from="1734800541923" duration="94000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
