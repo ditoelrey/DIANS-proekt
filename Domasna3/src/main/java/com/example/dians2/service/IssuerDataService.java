@@ -8,6 +8,4 @@ import java.util.List;
 
 public interface IssuerDataService {
     public List<IssuerData> getIssuersByCodeAndTimeRange(String code, LocalDate from, LocalDate to);
-    public List<String> getLastTradePrices(String issuerCode, Date startDate, Date endDate);
-    public List<String> getDates(String issuerCode, Date startDate, Date endDate);
 }

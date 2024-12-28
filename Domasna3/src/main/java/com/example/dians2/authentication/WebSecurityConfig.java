@@ -1,4 +1,4 @@
-package com.example.dians2.config;
+package com.example.dians2.authentication;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

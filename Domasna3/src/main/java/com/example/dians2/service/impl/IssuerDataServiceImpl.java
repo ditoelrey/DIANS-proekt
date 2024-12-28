@@ -6,6 +6,7 @@ import com.example.dians2.service.IssuerDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -31,8 +32,6 @@ public class IssuerDataServiceImpl implements IssuerDataService {
     }
 
 
-    //  TODO NOVO
-
     public List<String> getLastTradePrices(String issuerCode, Date startDate, Date endDate) {
         List<IssuerData> data = issuerDataRepository.findByIssuerCodeAndDateRange(issuerCode, startDate, endDate);
         return data.stream()
@@ -45,6 +44,22 @@ public class IssuerDataServiceImpl implements IssuerDataService {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         return data.stream()
                 .map(issuerData -> formatter.format(issuerData.getDate()))
+                .collect(Collectors.toList());
+    }
+    public List<IssuerData> sortIssuersByDate(String issuer) {
+        List<IssuerData>issuersData=issuerDataRepository.findByIssuerCode(issuer);
+        //SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return issuersData.stream()
+                .sorted((r1, r2) -> {
+                    try {
+                        Date date1 = dateFormat.parse(r1.getDate().toString());
+                        Date date2 = dateFormat.parse(r2.getDate().toString());
+                        return date2.compareTo(date1);
+                    } catch (ParseException e) {
+                        throw new RuntimeException("Invalid date format", e);
+                    }
+                })
                 .collect(Collectors.toList());
     }
 }

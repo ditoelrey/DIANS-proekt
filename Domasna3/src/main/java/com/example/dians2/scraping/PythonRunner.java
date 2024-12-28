@@ -1,4 +1,4 @@
-package com.example.dians2.configurations;
+package com.example.dians2.scraping;
 
 import com.example.dians2.service.impl.CsvImportServiceImpl;
 import org.springframework.scheduling.annotation.Async;
@@ -46,7 +46,7 @@ public class PythonRunner {
         }
     }
 
-    private String findPythonInterpreter() {
+    public static String findPythonInterpreter() {
         String[] commands = {"python3", "python"};
         for (String cmd : commands) {
             try {

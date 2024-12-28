@@ -1,4 +1,4 @@
-package com.example.dians2.config;
+package com.example.dians2.authentication;
 
 import com.example.dians2.service.UserService;
 import org.springframework.security.authentication.AuthenticationProvider;

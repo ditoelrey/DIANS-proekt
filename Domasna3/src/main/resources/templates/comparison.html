@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issuer Comparison</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+</head>
+<body>
+<div class="col-lg-3 col-md-4 col-sm-12">
+    <label class="form-label">Шифра 1:</label>
+    <select id="issuer1" class="form-select" required onclick="uncheckAllRadios()" >
+        <option value="" selected disabled>-- Избери шифра --</option>
+        <option th:each="code : ${codes}" th:value="${code}" th:text="${code}"
+                th:selected="${code == selectedCode}"></option>
+    </select>
+    <label class="form-label">Шифра 2:</label>
+    <select id="issuer2" class="form-select" required onclick="uncheckAllRadios()" >
+        <option value="" selected disabled>-- Избери шифра --</option>
+        <option th:each="code : ${codes}" th:value="${code}" th:text="${code}"
+                th:selected="${code == selectedCode}"></option>
+    </select>
+    <div class="timePeriodSelector mt-3">
+        <label>
+            <input type="radio" name="timePeriod" value="1_month" onclick="updateTimePeriod()"> 1 м.
+        </label>
+        <label>
+            <input type="radio" name="timePeriod" value="6_months" onclick="updateTimePeriod()"> 6 м.
+        </label>
+        <label>
+            <input type="radio" name="timePeriod" value="1_year" onclick="updateTimePeriod()"> 1 год.
+        </label>
+        <label>
+            <input type="radio" name="timePeriod" value="5_years" onclick="updateTimePeriod()"> 5 год.
+        </label>
+        <label>
+            <input type="radio" name="timePeriod" value="all" onclick="updateTimePeriod()"> 10 год.
+        </label>
+    </div>
+    <a href="http://localhost:9095/issuers" class="btn btn-primary mt-3">Назад</a>
+</div>
+<div id="loading" style="display: none;">Loading...</div>
+<canvas id="combinedStockChart" width="800" height="400"></canvas>
+
+<script>
+    function generateGraph() {
+        const issuer1 = document.getElementById('issuer1').value;
+        const issuer2 = document.getElementById('issuer2').value;
+        const selectedPeriod = document.querySelector('input[name="timePeriod"]:checked');
+        if (!selectedPeriod) {
+            alert("Please select a time period.");
+            return;
+        }
+        if (!issuer1 || !issuer2) {
+            alert("Please select both Шифра1 and Шифра2.");
+            return;
+        }
+        const period = selectedPeriod.value;
+        Promise.all([
+            fetchChartDataForIssuer(issuer1, period),
+            fetchChartDataForIssuer(issuer2, period)
+        ])
+            .then(([data1, data2]) => {
+                console.log(data1)
+                console.log(data2)
+                updateCombinedStockChart(data1, data2);
+            })
+            .catch(error => console.error('Error fetching data for both issuers:', error));
+        console.log("Here")
+    }
+    function updateTimePeriod(){
+        generateGraph();
+    }
+
+    function fetchChartDataForIssuer(issuer, period) {
+        const url = `/issuers/stock-chart-total-data?issuer=${encodeURIComponent(issuer)}&timePeriod=${encodeURIComponent(period)}`;
+        return fetch(url)
+            .then(response => response.json());
+    }
+    function uncheckAllRadios() {
+        const radioButtons = document.querySelectorAll('input[name="timePeriod"]');
+        radioButtons.forEach(radio => {
+            radio.checked = false;
+        });
+    }
+
+    function updateCombinedStockChart(data1, data2) {
+        console.log(data1.dates)
+        const ctx = document.getElementById('combinedStockChart').getContext('2d');
+        if (window.combinedStockChart && typeof window.combinedStockChart.destroy === 'function') {
+            window.combinedStockChart.destroy();
+        }
+
+        window.combinedStockChart=new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data1.periodDates,
+                datasets: [
+                    {
+                        label: 'Issuer 1 Average Price',
+                        data: data1.periodAvgPrices,
+                        borderColor: 'rgb(34,178,178)',
+                        backgroundColor: 'rgba(21,204,2,0.4)',
+                        fill: true,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Issuer 2 Average Price',
+                        data: data2.periodAvgPrices,
+                        borderColor: 'rgb(255,99,132)',
+                        backgroundColor: 'rgba(255,99,132,0.4)',
+                        fill: true,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: { responsive: true }
+        });
+    }
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

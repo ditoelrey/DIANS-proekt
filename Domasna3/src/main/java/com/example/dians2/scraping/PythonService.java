@@ -1,4 +1,4 @@
-package com.example.dians2.configurations;
+package com.example.dians2.scraping;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;

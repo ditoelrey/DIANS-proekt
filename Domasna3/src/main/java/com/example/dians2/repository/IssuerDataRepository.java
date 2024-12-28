@@ -12,17 +12,18 @@ import java.util.List;
 
 @Repository
 public interface IssuerDataRepository extends JpaRepository<IssuerData, Long> {
-@Query("SELECT i FROM IssuerData i WHERE i.issuer.issuerCode = :issuerId AND i.date BETWEEN :startDate AND :endDate")
-List<IssuerData> findByIssuerAndTimeRange(@Param("issuerId") String issuerId,
-                                          @Param("startDate") Date startDate,
-                                          @Param("endDate") Date endDate);
+    @Query("SELECT i FROM IssuerData i WHERE i.issuer.issuerCode = :issuerId AND i.date BETWEEN :startDate AND :endDate")
+    List<IssuerData> findByIssuerAndTimeRange(@Param("issuerId") String issuerId,
+                                              @Param("startDate") Date startDate,
+                                              @Param("endDate") Date endDate);
 
     @Query("SELECT MAX(i.date) FROM IssuerData i WHERE i.issuer.id = :issuerId")
     Date findLatestDateByIssuerId(@Param("issuerId") Long issuerId);
 
 
-
-    //TODO NOVO
     @Query("SELECT id FROM IssuerData id WHERE id.issuer.issuerCode = :issuerCode AND id.date BETWEEN :startDate AND :endDate ORDER BY id.date ASC")
     List<IssuerData> findByIssuerCodeAndDateRange(String issuerCode, Date startDate, Date endDate);
+
+    @Query("SELECT id FROM IssuerData id WHERE id.issuer.issuerCode = :issuerCode")
+    List<IssuerData> findByIssuerCode(String issuerCode);
 }
