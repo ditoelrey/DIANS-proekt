@@ -28,11 +28,13 @@ public class IssuerDataController {
     private final CodeServiceImpl codeService;
     private final TechnicalAnalysisServiceImpl technicalAnalysisService;
 
+
     @Autowired
     public IssuerDataController(IssuerDataServiceImpl issuerService, CodeServiceImpl codeService, TechnicalAnalysisServiceImpl technicalAnalysisService) {
         this.issuerService = issuerService;
         this.codeService = codeService;
         this.technicalAnalysisService = technicalAnalysisService;
+
     }
 
     @GetMapping()
@@ -63,16 +65,16 @@ public class IssuerDataController {
     public Map<String, Object> getStockTotalData(
             @RequestParam String issuer,
             @RequestParam String timePeriod) {
-        List<IssuerData>issuerData=issuerService.sortIssuersByDate(issuer);
+        List<IssuerData> issuerData = issuerService.sortIssuersByDate(issuer);
         List<String> periodDates = new ArrayList<>();
         List<Double> periodAvgPrices = new ArrayList<>();
 
         int differenceCoefficient = calculateDifferenceCoefficient(timePeriod);
 
         int coefficient = getDateCoefficient(issuerData.get(0).getDate().toString());
-        for(IssuerData row: issuerData){
+        for (IssuerData row : issuerData) {
             int rowCoefficient = getDateCoefficient(row.getDate().toString());
-            if(rowCoefficient < coefficient - differenceCoefficient){
+            if (rowCoefficient < coefficient - differenceCoefficient) {
                 break;
             }
 
@@ -89,25 +91,27 @@ public class IssuerDataController {
     }
 
     private int calculateDifferenceCoefficient(String timePeriod) {
-        if(timePeriod.equals("1_day"))
+        if (timePeriod.equals("1_day"))
             return 1;
-        if(timePeriod.equals("1_week"))
+        if (timePeriod.equals("1_week"))
             return 7;
-        if(timePeriod.equals("1_month"))
+        if (timePeriod.equals("1_month"))
             return 30;
-        if(timePeriod.equals("6_months"))
+        if (timePeriod.equals("6_months"))
             return 30 * 6;
-        if(timePeriod.equals("1_year"))
+        if (timePeriod.equals("1_year"))
             return 365;
-        if(timePeriod.equals("5_years"))
+        if (timePeriod.equals("5_years"))
             return 365 * 5;
         return 3650;
     }
-    private int getDateCoefficient(String date){
+
+    private int getDateCoefficient(String date) {
         String parts[] = date.split("-");
         return Integer.parseInt(parts[1]) * 30 + Integer.parseInt(parts[2]) + Integer.parseInt(parts[0]) * 365;
     }
-    private int getDateCoefficientTemp(String date){
+
+    private int getDateCoefficientTemp(String date) {
 
         String parts[] = date.split("/");
         return Integer.parseInt(parts[0]) * 30 + Integer.parseInt(parts[1]) + Integer.parseInt(parts[2]) * 365;
@@ -123,21 +127,22 @@ public class IssuerDataController {
             return 0.0;
         }
     }
+
     @GetMapping("/technical-analysis")
     @ResponseBody
     public Map<String, Object> getTechnicalAnalysis(
             @RequestParam String issuer,
-            @RequestParam String period){
-        if(prices == null || !issuer.equals(presentIssuer)){
+            @RequestParam String period) {
+        if (prices == null || !issuer.equals(presentIssuer)) {
             initializeTechnicalAnalysisData(issuer);
         }
 
         int differenceCoefficient = calculateDifferenceCoefficient(period);
         int coefficient = getDateCoefficientTemp(dates.get(dates.size() - 1));
         int counter = dates.size();
-        for(int i = dates.size() - 1; i >= 0; i--){
+        for (int i = dates.size() - 1; i >= 0; i--) {
             int rowCoefficient = getDateCoefficientTemp(dates.get(i));
-            if(rowCoefficient < coefficient - differenceCoefficient){
+            if (rowCoefficient < coefficient - differenceCoefficient) {
                 break;
             }
             counter--;
@@ -151,16 +156,16 @@ public class IssuerDataController {
         );
     }
 
-    private void initializeTechnicalAnalysisData(String issuer){
+    private void initializeTechnicalAnalysisData(String issuer) {
         String result = technicalAnalysisService.analyse(issuer);
         String[] parts = result.split("\\$");
         List<String> partsList = new ArrayList<>();
 
-        for(int i = 0; i < parts.length; i++){
+        for (int i = 0; i < parts.length; i++) {
             partsList.add(parts[i]);
         }
 
-        while(partsList.size() != 4)
+        while (partsList.size() != 4)
             partsList.add("10");
 
         String[] pricesArr = partsList.get(0).split("#");
@@ -175,29 +180,27 @@ public class IssuerDataController {
 
         int j = 0;
         int k = 0;
-        for(int i = 0; i < pricesArr.length - 1; i++){
-            if(pricesArr[i] == null)
+        for (int i = 0; i < pricesArr.length - 1; i++) {
+            if (pricesArr[i] == null)
                 continue;
             prices.add(Double.parseDouble(pricesArr[i]));
 
-            if(j < buyArr.length && !buyArr[j].isEmpty() && Double.parseDouble(buyArr[j]) == Double.parseDouble(pricesArr[i])){
+            if (j < buyArr.length && !buyArr[j].isEmpty() && Double.parseDouble(buyArr[j]) == Double.parseDouble(pricesArr[i])) {
                 buy.add(Double.parseDouble(pricesArr[i]));
                 j++;
-            }
-            else {
+            } else {
                 buy.add(null);
             }
 
-            if(k < sellArr.length && !sellArr[k].isEmpty() && Double.parseDouble(sellArr[k]) == Double.parseDouble(pricesArr[i])){
+            if (k < sellArr.length && !sellArr[k].isEmpty() && Double.parseDouble(sellArr[k]) == Double.parseDouble(pricesArr[i])) {
                 sell.add(Double.parseDouble(pricesArr[i]));
                 k++;
-            }
-            else {
+            } else {
                 sell.add(null);
             }
         }
-        for(int i = 0; i < datesArr.length - 1; i++){
-            if(datesArr[i] == null)
+        for (int i = 0; i < datesArr.length - 1; i++) {
+            if (datesArr[i] == null)
                 continue;
 
             DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
