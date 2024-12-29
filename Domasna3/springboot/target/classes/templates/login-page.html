@@ -14,6 +14,11 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/e59232f0a1.js" crossorigin="anonymous"></script>
+<style>
+    #submit{
+        background-color: #0395ad;
+    }
+</style>
 </head>
 <body>
 
@@ -32,8 +37,7 @@
                    required="">
         </p>
 
-        <th:block th:if="${hasError}">
-            <div th:text="${error}" class="text-danger"></div>
+        <div th:if="${param.error}" th:text="${param.error}" class="text-danger"></div>
         </th:block>
 
         <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
