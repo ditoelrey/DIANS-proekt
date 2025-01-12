@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issuer Details</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<style>
+    body{
+        font-family: 'Karla', sans-serif;
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+        margin: 0;
+    }
+    #left-side{
+        flex: 0 0 20%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+    #logout-btn {
+        border-radius: 50px;
+        background-color: green;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 15px;
+        display: inline-flex;
+        justify-content: center;
+        width: 150px;
+    }
+    #btn1, #download-btn{
+        border-radius: 50px;
+        border: 1px solid black;
+        padding: 10px 30px;
+    }
+
+    #logout-button{
+        margin-top: 80px;
+
+    }
+    #right-heading{
+        margin-top: 70px;
+    }
+    #right-side{
+        flex: 1;
+        background-color: #F7F9FB;
+        padding: 20px;
+    }
+    #left-side > div.col-md-2 > a {
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+        padding-bottom: 10px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+
+    #left-side a:hover {
+        color: darkgreen;
+    }
+
+
+    #right-heading h1 {
+        font-size: 25px;
+        margin: 0;
+    }
+
+    #logout-btn:hover {
+        background-color: darkgreen;
+        color:white;
+    }
+
+    #right-main {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        margin-top: 40px;
+    }
+
+    #right-main form,
+    #right-main .table-responsive,
+    #right-main section#charts {
+        width: 100%;
+    }
+
+    #right-main .table-responsive {
+        margin-bottom: 30px;
+    }
+    .timePeriodSelector{
+        margin-bottom: 20px;
+    }
+    #right-main .timePeriodSelector label {
+        margin-right: 10px;
+    }
+
+    #right-main .btn {
+        margin-right: 10px;
+    }
+
+    #right-main .form-control {
+        width: 100%;
+    }
+
+    #right-main .table th,
+    #right-main .table td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #right-main .table {
+        margin-top: -20px;
+    }
+
+    #right-main #loading {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    #issuerTable {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 16px;
+        text-align: left;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #issuerTable thead {
+        background-color: #343a40;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    #issuerTable th {
+        padding: 12px 15px;
+    }
+
+
+    #issuerTable tbody tr {
+        transition: background-color 0.3s ease;
+    }
+
+    #issuerTable td {
+        padding: 10px 15px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    #issuerTable tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    #issuerTable tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    #issuerTable tbody tr:nth-child(even) {
+        background-color: #ffffff;
+    }
+
+
+    #issuerTable td:last-child {
+        border-right: none;
+    }
+
+
+    #issuerTable th, #issuerTable td {
+        border-right: 1px solid #ddd;
+    }
+
+
+    #issuerTable td:last-child, #issuerTable th:last-child {
+        border-right: none;
+    }
+
+    #stockChartTotal {
+        width: 80%;
+        height: 400px;
+        display: block;
+    }
+
+    #charts{
+        margin-top:30px;
+    }
+
+</style>
+<body>
+<div id="left-side">
+    <h1>TRADERS</h1>
+    <div class="col-md-2">
+        <img src="/images/compare.png" alt="Compare Icon" width="40" height="40" class="me-2">
+        <a href="/comparison" class="btn btn-primary">Compare</a>
+    </div>
+    <div class="col-md-2">
+        <img src="/images/price.png" alt="Compare Icon" width="40" height="40" class="me-2">
+        <a href="/predicted-prices" class="btn btn-info w-100 btn-sm">Prices</a>
+    </div>
+<!--    jas-->
+    <div class="col-md-2">
+        <img src="/images/forecast.png" alt="Compare Icon" width="40" height="40" class="me-2">
+        <a href="/technical-analysis">Predictions</a>
+    </div>
+    <div id="logout-button" class="container mt-5">
+        <div class="text-end">
+            <a href="/logout" id="logout-btn" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div id="right-side">
+    <div id="right-heading">
+            <div>
+                <h1>Statistical summary, Markets, Trading, Predictions</h1>
+            </div>
+    </div>
+    <hr>
+    <div id="right-main">
+        <form action="/issuers" method="post" class="row g-3 mb-4" id="issuer-form">
+            <div class="col-lg-3 col-md-4 col-sm-12">
+                <select id="code-select" name="code" class="form-select" required onchange="updateIssuer()">
+                    <option value="" selected disabled>-- Choose an issuer --</option>
+                    <option th:each="code : ${codes}" th:value="${code}" th:text="${code}"
+                            th:selected="${code == selectedCode}"></option>
+                </select>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <label for="from-time" class="form-label">From:</label>
+                <input type="date" id="from-time" name="from" class="form-control" th:value="${selectedFrom}" required>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <label for="to-time" class="form-label">To:</label>
+                <input type="date" id="to-time" name="to" class="form-control" th:value="${selectedTo}" required>
+            </div>
+            <div class="col-lg-3 col-md-12 col-sm-12 d-flex align-items-end">
+                <button id="btn1" type="submit" class="btn btn-primary me-2">Display</button>
+                <button type="button" id="download-btn" class="btn btn-success me-2">Download</button>
+            </div>
+        </form>
+        <div class="table-responsive mb-4">
+            <table id="issuerTable" class="table table-bordered table-hover table-striped">
+                <thead class="table-dark">
+                <tr>
+                    <th>Date</th>
+                    <th>Last trade price</th>
+                    <th>Max</th>
+                    <th>Min</th>
+                    <th>Avg.Price</th>
+                    <th>%chg.</th>
+                    <th>Volume</th>
+                    <th>Turnover in BEST in denars</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="issuer : ${issuers}">
+                    <td th:text="${issuer.date}"></td>
+                    <td th:text="${issuer.lastTradePrice}"></td>
+                    <td th:text="${issuer.max}"></td>
+                    <td th:text="${issuer.min}"></td>
+                    <td th:text="${issuer.avgPrice}"></td>
+                    <td th:text="${issuer.percentageChange}"></td>
+                    <td th:text="${issuer.volume}"></td>
+                    <td th:text="${issuer.turnoverBest}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <section id="charts">
+                <div id="loading" style="text-align: center; margin: 20px;">
+                    <p>Loading charts...</p>
+                </div>
+
+                <h2>Statistical summary for selected issuer</h2>
+                <div class="timePeriodSelector">
+                    <label>
+                        <input type="radio" name="timePeriod" value="1_month" class="input" onclick="updatePeriod('1_month')">
+                        1 month
+                    </label>
+                    <label>
+                        <input type="radio" name="timePeriod" value="6_months" class="input" onclick="updatePeriod('6_months')">
+                        6 months
+                    </label>
+                    <label>
+                        <input type="radio" name="timePeriod" value="1_year" class="input" onclick="updatePeriod('1_year')">
+                        1 year
+                    </label>
+                    <label>
+                        <input type="radio" name="timePeriod" value="5_years" class="input" onclick="updatePeriod('5_years')">
+                        5 years
+                    </label>
+                    <label>
+                        <input type="radio" name="timePeriod" value="all" class="input" onclick="updatePeriod('all')">
+                        10 years
+                    </label>
+                </div>
+                <canvas id="stockChartTotal" style="display: none;"></canvas>
+            </section>
+
+
+        </div>
+        <div class="text-center mt-4">
+            <a href="/sentiment-analysis" class="btn btn-primary">Predictions based on issuer-news</a>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+            <script>
+
+                let issuer = "ALK";
+                let periodInitial="1_year";
+
+                function fetchTableData(code, fromDate, toDate) {
+                    const formData = new URLSearchParams();
+                    formData.append("code", code);
+                    formData.append("from", fromDate);
+                    formData.append("to", toDate);
+
+                    fetch("/issuers", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded",
+                        },
+                        body: formData.toString(),
+                    })
+                        .then(response => response.text())
+                        .then(html => {
+                            console.log(html);
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(html, "text/html");
+                            const rows = doc.querySelectorAll("table tbody tr");
+
+                            const targetTableBody = document.querySelector("#issuerTable tbody");
+                            targetTableBody.innerHTML = "";
+                            rows.forEach((row) => {
+                                console.log(row)
+                                targetTableBody.appendChild(row);
+                            });
+                        })
+                        .catch(error => {
+                            console.error("Error fetching data:", error);
+                        });
+                }
+
+
+                document.getElementById("issuer-form").addEventListener("submit", function(event) {
+                    event.preventDefault();
+                    updateIssuer();
+                    const fromDate = document.getElementById("from-time").value;
+                    const toDate = document.getElementById("to-time").value;
+                    fetchTableData(issuer,fromDate,toDate);
+                });
+
+                window.onload = function() {
+                    stockChartTotalData(issuer, periodInitial);
+                    const today = new Date();
+                    const toDate = today.toISOString().split("T")[0];
+
+                    const fromDate = new Date(today);
+                    fromDate.setDate(today.getDate() - 7);
+                    const fromDateString = fromDate.toISOString().split("T")[0];
+
+                    document.getElementById("from-time").value = fromDateString;
+                    document.getElementById("to-time").value=toDate;
+                    document.getElementById('code-select').value=issuer;
+                    const radioButtons = document.querySelectorAll('input[name="timePeriod"]');
+                    radioButtons.forEach(radio => {
+                        if (radio.value === periodInitial) {
+                            radio.checked = true;
+                        } else {
+                            radio.checked = false;
+                        }
+                    });
+
+
+                    fetchTableData(issuer,fromDateString,toDate);
+                };
+
+                function updateIssuer() {
+                    const selectElement = document.getElementById('code-select');
+                    if (!selectElement.value) {
+                        console.log('No issuer selected');
+                        return;
+                    }
+                    issuer = selectElement.value;
+                    console.log(`Issuer selected: ${issuer}`);
+                }
+
+                document.getElementById('download-btn').addEventListener('click', function () {
+                    var table = document.getElementById('issuerTable');
+                    var rows = table.getElementsByTagName('tr');
+                    var csvContent = '';
+
+                    for (var i = 1; i < rows.length; i++) {
+                        var rowData = [];
+                        var cols = rows[i].getElementsByTagName('td');
+
+                        for (var j = 0; j < cols.length; j++) {
+                            rowData.push(cols[j].innerText);
+                        }
+
+                        csvContent += rowData.join(',') + '\n';
+                    }
+
+                    var blob = new Blob([csvContent], {type: 'text/csv'});
+                    var link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = 'table_data.csv';
+                    link.click();
+                });
+
+
+                function updatePeriod(period) {
+                    let selectElement = document.getElementById('code-select').value;
+                    if (!selectElement.value) {
+                        console.log("No issuer selected. Aborting update.");
+                        selectElement=issuer;
+                    }
+                    stockChartTotalData(selectElement, period);
+                }
+
+                function stockChartTotalData(issuer, timePeriod) {
+                    if (!issuer || !timePeriod) {
+                        console.log("Missing issuer or time period");
+                        return;
+                    }
+                    const url = `/issuers/stock-chart-total-data?issuer=${encodeURIComponent(issuer)}&timePeriod=${encodeURIComponent(timePeriod)}`;
+                    const loadingDiv = document.getElementById('loading');
+                    loadingDiv.style.display = 'block';
+
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            loadingDiv.style.display = 'none';
+                            document.getElementById('stockChartTotal').style.display = 'block';
+                            updateStockChartTotal(data.periodDates, data.periodAvgPrices);
+                        })
+                        .catch(error => {
+                            console.error('Error fetching stock total chart data:', error);
+                            loadingDiv.innerHTML = '<p style="color: red;">Failed</p>';
+                        });
+                }
+
+                function updateStockChartTotal(periodDates, periodAvgPrices) {
+                    const ctxTotal = document.getElementById('stockChartTotal').getContext('2d');
+                    if (window.stockChartTotal && typeof window.stockChartTotal.destroy === 'function') {
+                        window.stockChartTotal.destroy();
+                    }
+
+                    window.stockChartTotal = new Chart(ctxTotal, {
+                        type: 'line',
+                        data: {
+                            labels: periodDates,
+                            datasets: [{
+                                label: 'Average Price',
+                                data: periodAvgPrices,
+                                borderColor: 'rgb(75,192,192)',
+                                backgroundColor: 'rgba(75,192,192,0.2)',
+                                fill: true,
+                                tension: 0.3,
+                                pointRadius: 4,
+                                pointBackgroundColor: 'rgb(75,192,192)'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        color: 'rgb(50,50,50)'
+                                    }
+                                },
+                                tooltip: {
+                                    enabled: true,
+                                    backgroundColor: 'rgba(50,50,50,0.8)',
+                                    titleColor: '#fff',
+                                    bodyColor: '#fff'
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    grid: {
+                                        color: 'rgba(200,200,200,0.3)'
+                                    },
+                                    ticks: {
+                                        color: 'rgb(100,100,100)'
+                                    }
+                                },
+                                y: {
+                                    grid: {
+                                        color: 'rgba(200,200,200,0.3)'
+                                    },
+                                    ticks: {
+                                        color: 'rgb(100,100,100)'
+                                    }
+                                }
+                            }
+                        }
+                    });
+
+                }
+            </script>
+            </body>
+            </html>
+
+
+
+
+
+

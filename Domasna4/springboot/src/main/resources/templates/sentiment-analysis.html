@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Karla', sans-serif;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        #logout-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="text-end">
+        <a href="/logout" id="logout-btn" class="btn btn-danger">Logout</a>
+    </div>
+
+    <h1 class="header">Analysis based on news and issuer information</h1>
+
+    <div class="form-group">
+        <select id="issuer" name="issuer" class="form-control">
+            <option value="" selected disabled>Issuer code</option>
+            <option th:each="code : ${codes}" th:value="${code}" th:text="${code}" th:selected="${code == selectedCode}"></option>
+        </select>
+    </div>
+    <button type="button" class="btn btn-primary mt-3" onclick="fetchSentiment()">Display</button>
+    <a href="/issuers" class="btn btn-secondary mt-3">Back</a>
+
+    <div class="mt-5">
+
+        <table id="sentimentTable" class="table table-bordered mt-3">
+            <thead>
+            <tr>
+                <th>Date Released</th>
+                <th>Sentiment Analysis</th>
+                <th>Recommendation</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    async function fetchSentiment() {
+        const issuer = document.getElementById("issuer").value;
+        if (!issuer) {
+            alert("Please select an issuer.");
+            return;
+        }
+
+        try {
+            const response = await fetch(`/sentiment-analysis/results?issuer=${issuer}`);
+            if (!response.ok) {
+                throw new Error(`Error fetching data: ${response.statusText}`);
+            }
+            const data = await response.json();
+
+            if (!data.results || data.results.length === 0) {
+                document.querySelector("#sentimentTable tbody").innerHTML = "<tr><td colspan='3'>Нема достапни вести</td></tr>";
+                return;
+            }
+
+
+            populateTable(data.results);
+        } catch (error) {
+            //console.error("Error fetching sentiment analysis data:", error);
+            //alert("Failed to fetch sentiment analysis data. Please try again later.");
+        }
+    }
+
+    function populateTable(results) {
+        const tableBody = document.querySelector("#sentimentTable tbody");
+        tableBody.innerHTML = "";
+
+        results.forEach((result) => {
+            const row = `<tr>
+                <td>${result.date}</td>
+                <td>${result.sentiment}</td>
+                <td>${result.recommendation}</td>
+            </tr>`;
+            tableBody.insertAdjacentHTML("beforeend", row);
+        });
+    }
+
+    window.onload = function () {
+        const issuerSelect = document.getElementById("issuer");
+        issuerSelect.addEventListener("change", fetchSentiment);
+    };
+</script>
+</body>
+</html>
