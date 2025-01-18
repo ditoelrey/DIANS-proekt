@@ -13,19 +13,19 @@ import java.util.List;
 
 @Controller
 public class PredictedPricesController {
-    private static PredictedPricesController instance;
-    private PredictedPricesController() {}
-    public static synchronized PredictedPricesController getInstance() {
-        if (instance == null) {
-            instance = new PredictedPricesController();
-        }
-        return instance;
-    }
+
     @GetMapping("/predicted-prices")
     public String getPredictedPrices(Model model) {
-        List<String[]> tableData = new ArrayList<>();
+        List<String[]> predictedPricesData = new ArrayList<>();
         try {
             Path filePath = Path.of("src/main/resources/predicted_average_prices.csv");
+
+            // Check if the file exists before proceeding
+            if (!Files.exists(filePath)) {
+                System.err.println("File not found: " + filePath);
+                return "error"; // Return an error page if the file doesn't exist
+            }
+
             try (BufferedReader br = Files.newBufferedReader(filePath)) {
                 String line;
                 boolean firstLine = true;
@@ -38,7 +38,7 @@ public class PredictedPricesController {
                     if (parts.length < 2) continue;
 
                     String issuerCode = parts[0].trim();
-                    String predictedPriceStr = parts[1].split(" ")[0].replaceAll("[^\\d.]", "").trim(); // Extract the numeric part and clean the data
+                    String predictedPriceStr = parts[1].split(" ")[0].replaceAll("[^\\d.]", "").trim(); // Extract numeric part
 
                     if (!predictedPriceStr.isEmpty()) {
                         try {
@@ -50,17 +50,19 @@ public class PredictedPricesController {
 
                             formattedPrice = formattedPrice.replace(',', ' ').replace('.', ',').replace(' ', '.');
 
-                            tableData.add(new String[]{issuerCode, formattedPrice});
+                            predictedPricesData.add(new String[]{issuerCode, formattedPrice});
                         } catch (NumberFormatException e) {
-                            e.printStackTrace();
+                            System.err.println("Error parsing predicted price for " + parts[0] + ": " + predictedPriceStr);
                         }
                     }
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
+            return "error";
         }
-        model.addAttribute("tableData", tableData);
+
+        model.addAttribute("tableData", predictedPricesData);
         return "predicted-prices";
     }
 }

@@ -30,21 +30,31 @@
         .header-container .btn {
             width: auto;
         }
+        .table thead {
+            background-color: #343a40;
+            color: white;
+        }
+        .table th {
+            text-align: center;
+        }
+        .table td {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 <div class="container mt-5">
     <div class="header-container">
-        <h1 class="header">Summary of predicted average prices</h1>
+        <h1 class="header">Summary of Predicted Average Prices</h1>
         <button type="button" id="download-btn" class="btn btn-success">Download</button>
     </div>
 
     <div class="table-responsive mb-4">
-        <table class="table table-bordered table-hover table-striped">
-            <thead class="table-dark">
+        <table class="table table-bordered table-hover">
+            <thead>
             <tr>
                 <th>Issuer</th>
-                <th>Predicted average price</th>
+                <th>Predicted Average Price</th>
             </tr>
             </thead>
             <tbody>
