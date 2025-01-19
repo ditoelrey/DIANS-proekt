@@ -22,11 +22,11 @@ public class TechnicalAnalysisServiceImpl implements TechnicalAnalysisService {
     public String analyse(String issuer) {
         StringBuilder output = new StringBuilder();
         try {
-            String pythonScriptPath = "python";
-            String scriptPath = "technical_analysis.py";
+            String pythonScriptPath = "python3";
+            String scriptPath = "/app/src/main/resources/technical_analysis.py";
             System.out.println("Technical Analysis for Issuer: " + issuer);
             ProcessBuilder processBuilder = new ProcessBuilder(pythonScriptPath, scriptPath, issuer);
-            processBuilder.directory(new File("src/main/resources"));
+            processBuilder.directory(new File("/app/src/main/resources"));
             processBuilder.redirectErrorStream(true);
             Process process = processBuilder.start();
 

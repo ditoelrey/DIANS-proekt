@@ -27,12 +27,12 @@ public class SentimentAnalysisServiceImpl {
 
         try {
 
-            String pythonScriptPath = "python";
-            String scriptPath = "sentiment_analysis.py";
+            String pythonScriptPath = "python3";
+            String scriptPath = "/app/src/main/resources/sentiment_analysis.py";
 
 
             ProcessBuilder processBuilder = new ProcessBuilder(pythonScriptPath, scriptPath, issuer);
-            processBuilder.directory(new File("src/main/resources"));
+            processBuilder.directory(new File("/app/src/main/resources"));
             processBuilder.redirectErrorStream(true);
 
 
